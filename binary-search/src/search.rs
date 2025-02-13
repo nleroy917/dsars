@@ -12,22 +12,23 @@ pub fn linear_search<T>(lst: &[T], x: T) -> Option<usize>
     None
 }
 
-pub fn binary_search<T>(lst: &[T], x: T) -> Option<usize>
+pub fn binary_search<T>(lst: &[T], x: T) -> Option<usize> 
     where T: PartialOrd + Eq
 {
-    let mut l = 0_usize;
-    let mut r = lst.len() - 1;
-    let mut m: usize;
+    let mut lo = 0_usize;
+    let mut hi = lst.len() - 1;
+    let mut mid: usize;
 
-    while l <= r {
-        m = (l + r) / 2;
+    while lo <= hi {
+        
+        mid = (lo + hi) / 2;
 
-        if lst[m] == x {
-            return Some(m)
-        } else if lst[m] < x {
-            l = m + 1
+        if lst[mid] == x {
+            return Some(mid)
+        } else if lst[mid] < x {
+            lo = mid + 1;
         } else {
-            r = m - 1;
+            hi = mid - 1;
         }
     }
 
