@@ -52,6 +52,14 @@ impl<T> LinkedList<T> {
 
         Ok(())
     }
+
+    pub fn pop(&mut self) -> Option<T> {
+        self.head.take().map(|node| {
+            self.head = node.next;
+            self.current_size -= 1;
+            node.data
+        })
+    }
 }
 
 impl<T: Debug> Display for LinkedList<T> {
