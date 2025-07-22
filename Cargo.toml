@@ -1,5 +1,6 @@
 [workspace]
 members = [
     "linked-list",
-    "binary-search"
+    "binary-search",
+    "quicksort"
 ]
